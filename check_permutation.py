@@ -26,9 +26,9 @@ def permutation(a, b):
 
 
 
-# assert permutation("abc", "bca")
-# assert not permutation("abc", "cbd")
-# assert not permutation("a", "ab")
-# assert not permutation(1, [1,2])
-# assert permutation("a", "a")
+assert permutation("abc", "bca")
+assert not permutation("abc", "cbd")
+assert not permutation("a", "ab")
+assert not permutation(1, [1,2])
+assert permutation("a", "a")
 assert permutation("1,2,3", "2,3,1")
