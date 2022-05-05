@@ -11,7 +11,7 @@
 # s and t consist of lowercase English letters.
 
 def solution(A, B):
-    if len(A) is not len(B):
+    if len(A) != len(B):
         return False
 
     hash_map = {}
