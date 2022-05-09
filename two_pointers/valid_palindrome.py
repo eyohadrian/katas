@@ -25,26 +25,26 @@
 
 # 1 <= s.length <= 2* 105
 # s consists only of printable ASCII characters. 
-
+from math import floor
 
 def solution(A):
-    dict = {}
-    non_alphanumeric = ".,-=_+:;[]{}()"
+    string = ""
+
     for c in A:
-        if not (c == " " or c in non_alphanumeric):
+        if c.isalnum():
             if c.isupper():
                 c = c.lower()
+            string+=c
 
-            if c in dict:
-                dict[c] -= 1
-                if dict[c] == 0:
-                    del dict[c]
-            else:
-                dict[c] = 1
+    str_len = floor(len(string)) - 1
 
-    return len(dict) == 0 or len(dict) == 1
+    for i, c in enumerate(string):
+        if string[i] != string[str_len - i]:
+            return False
+
+    return True
 
 assert(solution("A man, a plan, a canal: Panama")) == True
 assert(solution("race a car")) == False
 assert(solution(" ")) == True
-assert(solution("abb")) == True
+assert(solution("abb")) == False
