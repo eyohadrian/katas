@@ -21,27 +21,20 @@
 
 
 def solution(prices):
-    DAY = 0
-    VALUE = 1
-    min = []
-    max = [0, 0]
-
+    min = 0
+    max = 0
+    max_profit = 0
     for i, n in enumerate(prices):
-        if i == 0:
-            min = [i, n]
-        else:
-            if min[VALUE] >= n:
-                min = [i, n]
+        profit = n - prices[min]
+        if profit >= max_profit:
+            max_profit = profit
 
-    for i in range(min[DAY], len(prices)):
-        n = prices[i]
+        if n <= prices[min]:
+            min = i
 
-        if max[VALUE] <= n:
-            max = [i, n]
-
-    return max[VALUE] - min[VALUE]
+    return max_profit
 
 
-# assert solution([7,1,5,3,6,4]) == 5
-# assert solution([7,6,4,3,1]) == 0
-assert solution([2,4,1]) == 0
+assert solution([7,1,5,3,6,4]) == 5
+assert solution([7,6,4,3,1]) == 0
+assert solution([2,4,1]) == 2
