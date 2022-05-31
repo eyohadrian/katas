@@ -1,7 +1,7 @@
 def isBalanced(root):
     def x(root):
-    if not root:
-    return [True, 0]
+        if not root:
+            return [True, 0]
 
         left = x(root.left)
         right = x(root.right)
